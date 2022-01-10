@@ -1,6 +1,9 @@
 # immutable-x-openapi
 
-This contains an *unofficial* OpenAPI 3.0 definition for the [Immutable X APIs](https://docs.x.immutable.com/reference).
+This contains an *unofficial* OpenAPI 3.0 definitions for 
+
+- the [Immutable X APIs](https://docs.x.immutable.com/reference)
+- the [Gods Unchained APIs](https://github.com/immutable/gods-unchained-api)
 
 The definitions were created using [Stoplight Studio](https://stoplight.io/studio/).
 
@@ -20,6 +23,8 @@ For many endpoints, model definitions have been created for responses, which a c
 corresponding classes, or typed interfaces if using a Typescript generator.
 
 ## Undocumented APIs
+
+### Immutable X
 
 The following endpoints were unable to be documented at the time due to unavailability of the documentation:
 
