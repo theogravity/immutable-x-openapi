@@ -12,9 +12,25 @@ API client such as [Insomnia](https://insomnia.rest/) and [Postman](https://www.
 
 ![](assets/insomnia.png)
 
+## Building an SDK: javascript / node.js example
+
+You can use the [openapi-typescript-codegen](https://www.npmjs.com/package/openapi-typescript-codegen) package to 
+build an SDK complete with Typescript definitions to make requests to the APIs.
+
+If you copy the appropriate `reference/*.yaml` file to your project and install `openapi-typescript-codegen`,
+you can generate the SDK using a `script` command in your `package.json`:
+
+```json
+{
+  "scripts": {
+    "gu-client:build": "openapi --input GodsUnchained-API-OpenAPI3.yaml --useOptions --output ./src/gu-api-client"
+  }
+}
+```
+
 ## Notes
 
-These definitions were crafted by hand using the [API documentation](https://docs.x.immutable.com/reference).
+These definitions were crafted by hand using the available documentation.
 
 Although a best effort was made to ensure accuracy in results, there may be mistakes in the definition. If you find
 such a mistake, please open a pull request with the necessary changes.
