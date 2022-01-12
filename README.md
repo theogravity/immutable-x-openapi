@@ -12,10 +12,21 @@ API client such as [Insomnia](https://insomnia.rest/) and [Postman](https://www.
 
 ![](assets/insomnia.png)
 
-## Building an SDK: javascript / node.js example
+## Using a ready-made SDK
 
-You can use the [openapi-typescript-codegen](https://www.npmjs.com/package/openapi-typescript-codegen) package to 
-build an SDK complete with Typescript definitions to make requests to the APIs.
+You can find documentation here that has been generated using the definitions. Select the 
+language option on the right side for your client. There is a vanilla Javascript option if you
+click on the vertical three dots next to the languages, which will show you
+how to call the API in vanilla JS.
+
+https://imx.readme.io/reference/listcards
+
+## Building an SDK
+
+### Typescript (via node.js)
+
+Use the [openapi-typescript-codegen](https://www.npmjs.com/package/openapi-typescript-codegen) package to 
+build an SDK complete with Typescript definitions.
 
 If you copy the appropriate `reference/*.yaml` file to your project and install `openapi-typescript-codegen`,
 you can generate the SDK using a `script` command in your `package.json`:
