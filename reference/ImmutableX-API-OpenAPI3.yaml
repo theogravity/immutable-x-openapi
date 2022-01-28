@@ -62,12 +62,6 @@ paths:
                 $ref: '#/components/schemas/Application'
       operationId: getApplicationDetails
       description: Get details of an application with the given ID
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: id
-          description: Application ID
       tags:
         - applications
   /v1/assets:
