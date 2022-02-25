@@ -77,7 +77,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PrototypeCardList'
+                oneOf:
+                  - $ref: '#/components/schemas/PrototypeCardList'
+                  - $ref: '#/components/schemas/PrototypeCardFlatList'
       operationId: listProtos
       description: List protos
       parameters:
@@ -92,6 +94,7 @@ paths:
         - $ref: '#/components/parameters/mana'
         - $ref: '#/components/parameters/attack'
         - $ref: '#/components/parameters/health'
+        - $ref: '#/components/parameters/format'
     parameters: []
   '/v0/proto/{id}':
     parameters:
@@ -114,6 +117,7 @@ paths:
                 $ref: '#/components/schemas/PrototypeCard'
       operationId: getProto
       description: Returns the prototype card with id
+      parameters: []
   '/v0/factory/{address}':
     parameters:
       - schema:
@@ -2807,6 +2811,81 @@ components:
         - version
         - god
         - protos
+    PrototypeFlatCard:
+      description: ''
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        effect:
+          type: string
+          minLength: 1
+        god:
+          type: string
+          minLength: 1
+        rarity:
+          type: string
+          minLength: 1
+        tribe:
+          type: string
+        mana:
+          type: number
+        attack:
+          type: number
+        health:
+          type: number
+        type:
+          type: string
+          minLength: 1
+        live:
+          type: string
+          minLength: 1
+        set:
+          type: string
+          minLength: 1
+        collectable:
+          type: boolean
+        art_id:
+          type: string
+          minLength: 1
+        lib_id:
+          type: string
+          minLength: 1
+      required:
+        - name
+        - effect
+        - god
+        - rarity
+        - tribe
+        - mana
+        - attack
+        - health
+        - type
+        - live
+        - set
+        - collectable
+        - art_id
+        - lib_id
+      x-examples:
+        example-1:
+          name: Nethergram
+          effect: Summon three random creatures that cost 3 mana or less from your void. Give them +1/+1.
+          god: death
+          rarity: rare
+          tribe: ''
+          mana: 7
+          attack: 0
+          health: 0
+          type: spell
+          live: 'true'
+          set: genesis
+          collectable: true
+          art_id: C99
+          lib_id: L1-001
+    PrototypeCardFlatList:
+      title: PrototypeCardFlatList
+      type: object
   parameters:
     page:
       name: page
@@ -2902,12 +2981,12 @@ components:
     format:
       name: format
       in: query
-      required: false
       schema:
         type: string
         enum:
           - full
           - card
+          - flat
     mana:
       name: mana
       in: query
